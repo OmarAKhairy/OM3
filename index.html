@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>OM3</title>
+	<link href="https://i.imgur.com/YZi4LRE.png" rel="icon" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="css/landing.css" rel="stylesheet" type="text/css" /><!--<link rel="stylesheet" type="text/css" href="/stylesheets/wickedcss.min.css">-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif|Playfair+Display" rel="stylesheet" />
+	<style type="text/css">/*Break 1 */
+@media screen and (max-width: 995px){
+#team-mobile{
+      display: block;
+    }
+#team-desktop{
+      display: none;
+  }
+    
+/* Team */
+#team-mobile{
+    background: #f3ece4;
+    height: 100%;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 996;
+}
+
+#team-mobile i{
+    font-size: 30px;
+}
+#team-mobile h3:hover{
+    color: red !important;
+}
+#team-mobile i:hover{
+    color: #fff;
+}
+#team-mobile img{
+   display: block;
+   width: 180px;
+   height: 180px;
+   border-radius: 50%;
+   margin: 10px auto;
+   border: solid 5px #66808d;
+}
+#team-mobile img:hover{
+  position: relative;
+  top: 4px;
+  border: solid 8px #a68250;
+}
+#about button{
+  display: none;
+}
+}
+
+/* Break 2 */ 
+@media screen and (max-width: 700px){
+    #hero-content{
+        margin: 30px auto;
+        width: 95%;
+        z-index: 998;
+    }
+    #hero-content h1{
+        color: #fff;
+        font-size: 25px;
+    }
+    #hero-content h2{
+        border-top: solid 1px #fff;
+        padding: 8px;
+        font-size: 18px;
+    }
+    
+    #hero-content #hero-buttons{
+        text-align: center;
+        margin-top: 15px;
+    }
+    
+    #contact-info{
+      border-top: solid 2px #a68250;
+      margin-top: 35px;
+      padding-top: 20px;
+    }
+    #contact .list-group-flush{
+    border-left: none;
+    padding-left: 0;
+    }
+    .social-icons i{
+    font-size: 25px;
+    color: #66808d;
+    position: relative;
+    top:6px;
+}
+}
+	</style>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script><script>
+   $( document ).ready(function() {
+
+     scaleVideoContainer();
+
+     initBannerVideoSize('.video-container .poster img');
+     initBannerVideoSize('.video-container .filter');
+     initBannerVideoSize('.video-container video');
+
+    $(window).on('resize', function() {
+         scaleVideoContainer();
+         scaleBannerVideoSize('.video-container .poster img');
+         scaleBannerVideoSize('.video-container .filter');
+         scaleBannerVideoSize('.video-container video');
+     });
+
+});
+
+ function scaleVideoContainer() {
+
+     var height = $(window).height() + 5;
+     var unitHeight = parseInt(height) + 'px';
+     $('.homepage-hero-module').css('height',unitHeight);
+
+}
+
+ function initBannerVideoSize(element){
+
+     $(element).each(function(){
+         $(this).data('height', $(this).height());
+         $(this).data('width', $(this).width());
+     });
+
+     scaleBannerVideoSize(element);
+
+ }
+
+ function scaleBannerVideoSize(element){
+
+     var windowWidth = $(window).width(),
+     windowHeight = $(window).height() + 5,
+     videoWidth,
+     videoHeight;
+
+      console.log(windowHeight);
+
+     $(element).each(function(){
+         var videoAspectRatio = $(this).data('height')/$(this).data('width');
+
+         $(this).width(windowWidth);
+
+         if(windowWidth < 1000){
+             videoHeight = windowHeight;
+             videoWidth = videoHeight / videoAspectRatio;
+             $(this).css({'margin-top' : 0, 'margin-left' : -(videoWidth - windowWidth) / 2 + 'px'});
+
+             $(this).width(videoWidth).height(videoHeight);
+         }
+
+         $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
+
+    });
+}
+</script>
+</head>
+<body><!-- Hero Section -->
+<div class="homepage-hero-module">
+<div class="video-container">
+<div class="container hero">
+<nav class="navbar navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="/"><img src="https://i.imgur.com/riVVLjS.png" /></a><button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button"><!--<span class="navbar-toggler-icon"></span>--></button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-auto">
+	<li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+	<li class="nav-item"><a class="nav-link" href="#team">Our Team</a></li>
+	<li class="nav-item"><a class="nav-link" href="#team">How It Works</a></li>
+</ul>
+
+<ul class="navbar-nav justify-content-center">
+	<li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+	<li class="nav-item"><a class="nav-link" href="/login.php">Login</a></li>
+</ul>
+</div>
+</nav>
+</div>
+
+<div class="container align-middle">
+<div id="hero-content">
+<h1>RFID Robot</h1>
+
+<h1>For Smart Inventory System</h1>
+
+<h2 class="text-primary">A Smart Solution with the latest cutting edge technology for any storage or stocking Area</h2>
+
+<div id="hero-buttons"><button class="btn btn-outline-primary btn-lg mt-2">Get Started</button><button class="btn btn-outline-danger btn-lg mt-2 ml-2">Login</button></div>
+</div>
+</div>
+
+<div class="filter"></div>
+
+<video autoplay="" class="fillWidth" loop=""><source src="media/South_Carolina_City.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser. <source src="media/South_Carolina_City.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.</video>
+<!--<div class="poster hidden">--><!--    <img src="https://i.imgur.com/KKdyZ25.jpg" alt="">--><!--</div>--></div>
+</div>
+<!-- End of Hero Section --><!-- About Section -->
+
+<div class="row no-gutters">
+<div class="col-md-6 offset-md-3">
+<div class="container slideRight" id="about">
+<h1>About Us</h1>
+&nbsp;
+
+<p>We are a team of undergraduate engineers at the electronics and electrical communication engineering departement at the Canadian International College. We intoduced the smart RFID robot as our graduation project. It is a smart robot that will perform the inventory process using the RFID Technology, controlled remotely through an application.</p>
+<button class="btn btn-outline-primary btn-lg mt-2">Know Us More</button></div>
+</div>
+</div>
+<!-- End of About Section --><!-- New Team -->
+
+<div id="team-desktop">
+<div class="homepage-hero-module">
+<div class="video-container">
+<div id="team">
+<div class="container">
+<h1 class="white">Meet Our Team</h1>
+&nbsp;
+
+<div class="row">
+<div class="col-lg-3 col-md-6 col-sm-12 member"><img alt="Omar Khairy" class="img-responsive" src="https://i.imgur.com/J2wHkQ3.png" />
+<h3 class="text-muted">Omar Khairy</h3>
+
+<h5 class="mb-2 text-primary">Software Engineer</h5>
+
+<hr /></div>
+
+<div class="col-lg-3 col-md-6 col-sm-12 member"><img alt="Maged El-badry" class="img-responsive" src="https://i.imgur.com/s8qzTlP.png" />
+<h3 class="text-muted">Maged Elbadry</h3>
+
+<h5 class="mb-2 text-primary">Engineer</h5>
+
+<hr /></div>
+
+<div class="col-lg-3 col-md-6 col-sm-12 member"><img alt="Mina Nagi" class="img-responsive" src="https://i.imgur.com/FqwVm8b.png" />
+<h3 class="text-muted">Mina Nagi</h3>
+
+<h5 class="mb-2 text-primary">Engineer</h5>
+
+<hr /></div>
+
+<div class="col-lg-3 col-md-6 col-sm-12 member"><img alt="Mohamed Ali" class="img-responsive" src="https://i.imgur.com/KxnCq2Y.jpg" />
+<h3 class="text-muted">Mohamed Ali</h3>
+
+<h5 class="mb-2 text-primary">Engineer</h5>
+
+<hr /></div>
+</div>
+</div>
+</div>
+
+<div class="filter"></div>
+
+<video autoplay="" class="fillWidth" loop=""><source src="media/Love-Coding.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser. <source src="media/Love-Coding.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.</video>
+<!--<div class="poster hidden">--><!--    <img src="" alt="">--><!--</div>--></div>
+</div>
+</div>
+<!-- End of New Team Section --><!-- New Team Mobile Section-->
+
+<div id="team-mobile">
+<div class="container">
+<h1 class="white">Meet Our Team</h1>
+&nbsp;
+
+<div class="row">
+<div class="col-lg-3 col-md-6 col-sm-12 member"><img alt="Omar Khairy" class="img-responsive" src="https://i.imgur.com/J2wHkQ3.png" />
+<h3 class="text-muted">Omar Khairy</h3>
+
+<h5 class="mb-2 text-primary">Software Engineer</h5>
+
+<hr /></div>
+
+<div class="col-lg-3 col-md-6 col-sm-12 member"><img alt="Maged El-badry" class="img-responsive" src="https://i.imgur.com/s8qzTlP.png" />
+<h3 class="text-muted">Maged Elbadry</h3>
+
+<h5 class="mb-2 text-primary">Engineer</h5>
+
+<hr /></div>
+
+<div class="col-lg-3 col-md-6 col-sm-12 member"><img alt="Mina Nagi" class="img-responsive" src="https://i.imgur.com/FqwVm8b.png" />
+<h3 class="text-muted">Mina Nagi</h3>
+
+<h5 class="mb-2 text-primary">Engineer</h5>
+
+<hr /></div>
+
+<div class="col-lg-3 col-md-6 col-sm-12 member"><img alt="Mohamed Ali" class="img-responsive" src="https://i.imgur.com/KxnCq2Y.jpg" />
+<h3 class="text-muted">Mohamed Ali</h3>
+
+<h5 class="mb-2 text-primary">Engineer</h5>
+
+<hr /></div>
+</div>
+</div>
+</div>
+<!-- End of New Team Mobile Section --><!-- Contact Us Section -->
+
+<div id="contact">
+<div class="container">
+<div class="row">
+<div class="col-md-6 col-sm-12">
+<h1>Send Us Your Request</h1>
+
+<form class="mx-auto">
+<div class="form-group"><!--<label for="name">Name</label>--><input class="form-control" id="name" placeholder="Your Name" type="text" /></div>
+
+<div class="form-group"><!--<label for="email">Email address</label>--><input class="form-control" id="email" placeholder="Your Email" type="email" /></div>
+
+<div class="form-group"><!--<label for="textarea">Tell Us What You Need</label>--><textarea class="form-control" id="textarea" placeholder="Tell Us What You Need" rows="3"></textarea></div>
+<button class="btn btn-outline-primary btn-block" type="submit">Submit</button></form>
+</div>
+
+<div class="col-md-4 offset-md-1 col-sm-12" id="contact-info">
+<h1>Contact Us</h1>
+
+<ul class="list-group list-group-flush">
+	<li class="list-group-item">Tel: ###-###-###</li>
+	<li class="list-group-item">Email: OM3@tech.com</li>
+	<li class="list-group-item">Address: Nulla quis lorem ut libero malesuada feugiat.</li>
+	<li class="list-group-item"></li>
+</ul>
+</div>
+</div>
+<!-- End of Row --></div>
+<!-- End of Container --></div>
+<!-- End of Contact --><!-- End Of Contact Us Section -->
+
+<footer class="footer">
+<div class="container"><span>All Rights Reserved to <strong>OM3</strong></span>
+
+<div class="social-icons float-right"></div>
+</div>
+</footer>
+<script>
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+
+</script></body>
+</html>
